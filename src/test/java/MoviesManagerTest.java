@@ -54,7 +54,7 @@ public class MoviesManagerTest {
     }
 
     @Test
-    public void limitAboveMaximum() {
+    public void aboveMaximumLimit() {
         MoviesManager manager = new MoviesManager();
 
         manager.addMovie("Film 1");
@@ -63,10 +63,9 @@ public class MoviesManagerTest {
         manager.addMovie("Film 4");
         manager.addMovie("Film 5");
         manager.addMovie("Film 6");
-        manager.addMovie("Film 7");
 
-        String[] expected = {"Film 1", "Film 2", "Film 3", "Film 4", "Film 5", "Film 6", "Film 7"};
-        String[] actual = manager.findAll();
+        String[] expected = {"Film 6", "Film 5", "Film 4", "Film 3", "Film 2", "Film 1"};
+        String[] actual = manager.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
 }
